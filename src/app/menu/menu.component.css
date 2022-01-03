@@ -1,12 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
 .logo {
-  font-size: 24px;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  width: 50px;
-  height: 50px;
-  margin-right: 20px;
+  height: 8vh;
+
+}
+
+.logo span{
+  margin-right: 10px;
 }
 
 nav {
@@ -16,6 +16,10 @@ nav {
   font-family: Montserrat;
   background: #23232e;
   height: 8vh;
+}
+nav span{
+  color: white;
+  letter-spacing: 3px;
 }
 
 nav img{
