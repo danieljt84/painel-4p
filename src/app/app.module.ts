@@ -12,12 +12,18 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { NavComponent } from './nav/nav.component';
+import { LayoutGalleryComponent } from './layout-gallery/layout-gallery.component';
+import { PhotoListComponent } from './layout-gallery/photo-list/photo-list.component';
+import { PhotoComponent } from './layout-gallery/photo/photo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    NavComponent
+    NavComponent,
+    LayoutGalleryComponent,
+    PhotoListComponent,
+    PhotoComponent
   ],
   imports: [
     BrowserModule,
