@@ -15,6 +15,8 @@ import { NavComponent } from './nav/nav.component';
 import { LayoutGalleryComponent } from './layout-gallery/layout-gallery.component';
 import { PhotoListComponent } from './layout-gallery/photo-list/photo-list.component';
 import { PhotoComponent } from './layout-gallery/photo/photo.component';
+import { FormFilterComponent } from './layout-gallery/form-filter/form-filter.component';
+import { CardComponent } from './shared/card/card.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { PhotoComponent } from './layout-gallery/photo/photo.component';
     NavComponent,
     LayoutGalleryComponent,
     PhotoListComponent,
-    PhotoComponent
+    PhotoComponent,
+    FormFilterComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
