@@ -17,6 +17,9 @@ import { PhotoListComponent } from './layout-gallery/photo-list/photo-list.compo
 import { PhotoComponent } from './layout-gallery/photo/photo.component';
 import { FormFilterComponent } from './layout-gallery/form-filter/form-filter.component';
 import { CardComponent } from './shared/card/card.component';
+import { BNavComponent } from './b-nav/b-nav.component';
+import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +30,8 @@ import { CardComponent } from './shared/card/card.component';
     PhotoListComponent,
     PhotoComponent,
     FormFilterComponent,
-    CardComponent
+    CardComponent,
+    BNavComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +42,8 @@ import { CardComponent } from './shared/card/card.component';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MdbCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
