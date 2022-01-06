@@ -12,6 +12,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { NavComponent } from './nav/nav.component';
+<<<<<<< HEAD
 import { LayoutGalleryComponent } from './layout-gallery/layout-gallery.component';
 import { PhotoListComponent } from './layout-gallery/photo-list/photo-list.component';
 import { PhotoComponent } from './layout-gallery/photo/photo.component';
@@ -20,18 +21,25 @@ import { CardComponent } from './shared/card/card.component';
 import { BNavComponent } from './b-nav/b-nav.component';
 import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
 
+=======
+import { GalleryComponent } from './gallery/gallery.component';
+>>>>>>> c777a1fbcd679b09f533a656c1e034bb35141138
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     NavComponent,
+<<<<<<< HEAD
     LayoutGalleryComponent,
     PhotoListComponent,
     PhotoComponent,
     FormFilterComponent,
     CardComponent,
     BNavComponent
+=======
+    GalleryComponent
+>>>>>>> c777a1fbcd679b09f533a656c1e034bb35141138
   ],
   imports: [
     BrowserModule,
