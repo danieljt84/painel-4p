@@ -39,4 +39,12 @@
   position: absolute;
   top: 100%;
   visibility: hidden;
+  list-style: none;
+  z-index: 1;
+}
+.input-group-r ul li:hover{
+  color: grey;
+}
+.selected{
+  background-color: rgb(202, 201, 201);
 }
