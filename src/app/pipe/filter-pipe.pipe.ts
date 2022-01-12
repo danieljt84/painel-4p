@@ -5,8 +5,18 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FilterPipePipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+  transform(values: any[], search: string) {
+    if (!values) {
+      return [];
+    }
+    if (!search) {
+      return values;
+    }
+
+    search = search.toLocaleLowerCase();
+    return values.filter(it => {
+      return it.toLocaleLowerCase().includes(search);
+    });
   }
 
 }

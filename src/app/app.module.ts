@@ -20,6 +20,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormFilterDataComponent } from './layout-data/form-filter-data/form-filter-data.component';
 import { FilterPipePipe } from './pipe/filter-pipe.pipe';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +42,7 @@ import { FilterPipePipe } from './pipe/filter-pipe.pipe';
     BrowserAnimationsModule,
     LayoutModule,
     MatTableModule,
+    FormsModule,
     MatSortModule,
     MatFormFieldModule,
     MatInputModule

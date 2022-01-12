@@ -35,12 +35,16 @@
   margin-bottom: 10px;
 }
 .input-group-r ul{
-  overflow:visible;
+  overflow:hidden;
+  overflow-y:scroll;
   position: absolute;
   top: 100%;
   visibility: hidden;
   list-style: none;
   z-index: 1;
+  height:100px;
+  width:auto;
+
 }
 .input-group-r ul li:hover{
   color: grey;
