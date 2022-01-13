@@ -9,35 +9,25 @@
               <input type="date" class="input-gallery" id="dataInicial" />
               <input type="date" class="input-gallery" id="dataFinal" />
               <label for="industria">Industria: </label>
-              <input type="text" class="input-gallery" value="Pramesa" readonly id="industria" />
-              <div class="input-group-r">
-                <label for="ramo">Ramo: </label>
-                <input #ramo type="text" (click)="toggleList()" class="input-gallery" readonly placeholder="Selecione:"
-                  id="ramo"/>
-                <ul id="ul" class="ul">
-                  <li>
-                    <div>
-                      <input [(ngModel)]="search" id="filterRamo" (keyup)="filterLi($event)" type="text">
-                    </div>
-                  </li>
-                  <ng-container *ngFor="let c of characters | filterPipe: search">
-                    <li *ngIf="isSelected(c)" class="li selected" (click)="getValueLi($event)">{{c}}</li>
-                    <li *ngIf="!isSelected(c)" class="li" (click)="getValueLi($event)">{{c}}</li>
-
-                  </ng-container>
-                </ul>
-              </div>
+              <input
+                type="text"
+                class="input-gallery"
+                value="Pramesa"
+                readonly
+                id="industria"
+              />
+              <app-field-filter></app-field-filter>
               <label for="rede">Rede: </label>
               <input type="text" class="input-gallery" id="rede" />
             </div>
-          </div>
-          <div class="col-lg-12 col-md-3">
-            <div class="input-group-gallery">
-              <label for="local">Local: </label>
-              <input type="text" class="input-gallery" id="local" />
-              <label for="tipo-pesquisa">Tipo de pesquisa: </label>
-              <input type="text" class="input-gallery" id="tipo-pesquisa" />
-              <button type="submit" class="galerry-button">Filtrar</button>
+            <div class="col-lg-12 col-md-3">
+              <div class="input-group-gallery">
+                <label for="local">Local: </label>
+                <input type="text" class="input-gallery" id="local" />
+                <label for="tipo-pesquisa">Tipo de pesquisa: </label>
+                <input type="text" class="input-gallery" id="tipo-pesquisa" />
+                <button type="submit" class="galerry-button">Filtrar</button>
+              </div>
             </div>
           </div>
         </div>

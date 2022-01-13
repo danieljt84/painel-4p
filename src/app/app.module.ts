@@ -21,6 +21,8 @@ import { MatInputModule } from '@angular/material/input';
 import { FormFilterDataComponent } from './layout-data/form-filter-data/form-filter-data.component';
 import { FilterPipePipe } from './pipe/filter-pipe.pipe';
 import { FormsModule } from '@angular/forms';
+import { FilterRamoComponent } from './layout-data/form-filter-data/filter-ramo/filter-ramo.component';
+import { FieldFilterComponent } from './layout-data/form-filter-data/field-filter/field-filter.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,9 @@ import { FormsModule } from '@angular/forms';
     DataTableComponent,
     GalleryComponent,
     FormFilterDataComponent,
-    FilterPipePipe
+    FilterPipePipe,
+    FilterRamoComponent,
+    FieldFilterComponent
   ],
   imports: [
     BrowserModule,

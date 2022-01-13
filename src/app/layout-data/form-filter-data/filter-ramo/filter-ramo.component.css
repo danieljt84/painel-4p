@@ -1,0 +1,18 @@
+.input-group-r ul{
+  overflow:hidden;
+  overflow-y:scroll;
+  position: absolute;
+  top: 100%;
+  visibility: hidden;
+  list-style: none;
+  z-index: 1;
+  height:100px;
+  width:auto;
+
+}
+.input-group-r ul li:hover{
+  color: grey;
+}
+.selected{
+  background-color: rgb(202, 201, 201);
+}
