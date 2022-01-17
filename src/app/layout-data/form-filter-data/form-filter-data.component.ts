@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, filter } from 'rxjs';
 import { DataTable } from 'src/app/model/data-table';
 import { DataTableService } from 'src/app/service/data-table.service';
 declare var $: any;
@@ -27,8 +27,16 @@ export class FormFilterDataComponent implements OnInit {
 
   ngOnInit(): void {
     this.filterBehaviorSubject.subscribe(values => {
-      console.log(values[0]);
-      this.filtersSelected.get(values[0]).push(values[1]);
+      if(values!=null){
+       if(this.filtersSelected.get(values[0]).includes(values[1])){
+         //Removendo valor que esta contido
+        this.filtersSelected.get(values[0]).splice(this.filtersSelected.get(values[0]).indexOf(values[1]), 1);
+        }else{
+          //Adicionando valor que ainda não estava contido
+          this.filtersSelected.get(values[0]).push(values[1]);
+        }
+        this.filters = this.dataTableService.addFilter(this.filtersSelected);
+      }
     })
   }
   //cria os arrays dos filtros
@@ -40,7 +48,5 @@ export class FormFilterDataComponent implements OnInit {
     this.filtersSelected.set('tipoPesquisa', []);
   }
 
-  filterDatas(){
-    
-  }
+
 }

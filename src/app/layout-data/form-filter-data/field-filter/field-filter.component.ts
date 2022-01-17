@@ -53,6 +53,7 @@ export class FieldFilterComponent implements OnInit {
       $("#" + this.id_input).val(
         this.removeString($("#" + this.id_input).val(), event.target.innerText)
       );
+      this.addfilter(this.label, event.target.innerText)
     }
   }
 
