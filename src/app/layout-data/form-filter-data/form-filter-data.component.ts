@@ -1,4 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { DataTable } from 'src/app/model/data-table';
+import { DataTableService } from 'src/app/service/data-table.service';
 declare var $: any;
 
 @Component({
@@ -7,67 +10,37 @@ declare var $: any;
   styleUrls: ['./form-filter-data.component.css'],
 })
 export class FormFilterDataComponent implements OnInit {
-  search: any = '';
-  liSelected: string[] = [];
-  characters = [
-    'Ant-Man',
-    'Aquaman',
-    'Asterix',
-    'The Atom',
-    'The Avengers',
-    'Batgirl',
-    'Batman',
-    'Batwoman',
-  ];
-  constructor() {}
+
+  values: DataTable;
+  filters: Map<string, string[]>;
+  filtersSelected: Map<string, string[]>;
+  filterBehaviorSubject: BehaviorSubject<string[]>;
+
+  constructor(private dataTableService: DataTableService) {
+    this.values = this.dataTableService.getDataTable();
+    this.filters = this.dataTableService.getFieldsTable();
+    this.filtersSelected = new Map<string, string[]>();
+    this.filterBehaviorSubject = new BehaviorSubject<string[]>(null);
+
+    this.createFieldsSelectedMap();
+  }
 
   ngOnInit(): void {
-    $('#industria').val('ola');
+    this.filterBehaviorSubject.subscribe(values => {
+      console.log(values[0]);
+      this.filtersSelected.get(values[0]).push(values[1]);
+    })
+  }
+  //cria os arrays dos filtros
+  createFieldsSelectedMap() {
+    this.filtersSelected.set('industria', []);
+    this.filtersSelected.set('ramo', []);
+    this.filtersSelected.set('rede', []);
+    this.filtersSelected.set('local', []);
+    this.filtersSelected.set('tipoPesquisa', []);
   }
 
-  toggleList() {
-    if ($('#ul').css('visibility') == 'hidden') {
-      $('#ul').css('visibility', 'visible');
-    } else {
-      $('#ul').css('visibility', 'hidden');
-    }
-  }
-
-  getValueLi(event: any) {
-    if (!event.target.classList.contains('selected')) {
-      event.target.classList.add('selected');
-      this.liSelected.push(event.target.innerText);
-      $('#ramo').val(this.addString($('#ramo').val(), event.target.innerText));
-    } else {
-      event.target.classList.remove('selected');
-      for( var i = 0; i < this.liSelected.length; i++){
-        if ( this.liSelected[i] === event.target.innerText ) {
-            this.liSelected.splice(i, 1);
-        }
-    }
-      $('#ramo').val(
-        this.removeString($('#ramo').val(), event.target.innerText)
-      );
-    }
-  }
-
-  filterLi(event: any) {}
-
-  removeString(completeString: any, stringToRemove: string) {
-    completeString = completeString.replaceAll(' ' + stringToRemove, '');
-    return completeString;
-  }
-
-  addString(completeString: string, stringToAdd: string): string {
-    completeString = completeString + ' ' + stringToAdd;
-    return completeString;
-  }
-
-  isSelected(value: string): boolean {
-    if (this.liSelected.includes(value)) {
-      return true;
-    } else {
-      return false;
-    }
+  filterDatas(){
+    
   }
 }
