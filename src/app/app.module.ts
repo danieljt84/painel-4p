@@ -22,6 +22,7 @@ import { FormFilterDataComponent } from './layout-data/form-filter-data/form-fil
 import { FilterPipePipe } from './pipe/filter-pipe.pipe';
 import { FormsModule } from '@angular/forms';
 import { FieldFilterComponent } from './layout-data/form-filter-data/field-filter/field-filter.component';
+import { OutsideClickDirective } from './directive/outside-click.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,8 @@ import { FieldFilterComponent } from './layout-data/form-filter-data/field-filte
     GalleryComponent,
     FormFilterDataComponent,
     FilterPipePipe,
-    FieldFilterComponent
+    FieldFilterComponent,
+    OutsideClickDirective
   ],
   imports: [
     BrowserModule,

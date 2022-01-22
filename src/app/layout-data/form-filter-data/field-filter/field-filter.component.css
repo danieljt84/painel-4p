@@ -20,7 +20,8 @@
   z-index: 1;
   height:auto;
   max-height: 100px;
-  width:auto;
+  width:auto;;
+  background-color: aliceblue;
 }
 .input-group-r ul li:hover{
   color: grey;

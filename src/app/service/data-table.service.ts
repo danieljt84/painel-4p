@@ -28,7 +28,7 @@ export class DataTableService {
   //Cria os arrays dos filtros
   //Insere os filtros possiveis para cada tipo
   //Retira os valores repetidos
-  createFieldsMap(dataTable:DataTable) {
+  createFieldsMap(dataTable: DataTable) {
     this.filters.set('industria', []);
     this.filters.set('ramo', []);
     this.filters.set('rede', []);
@@ -43,26 +43,44 @@ export class DataTableService {
       this.filters.get('tipoPesquisa').push(value.tipoPesquisa)
     })
 
-    //Removendo repeditos
+    //Removendo repetidos
     this.filters
       .forEach((filter: string[], key: string, map: Map<string, string[]>) =>
         map.set(key, filter.filter((it, i) =>
           filter.indexOf(it) === i)));
+
   }
-
+  //Seguindo a regra de negócio, se tem local, nao precisa de rede, ramo;
+   //Seguindo a regra de negócio, se tem rede, nao precisa de ramo;
+  //Filtro os valores pelos 'li' selecionados e adiciono a um novo array de retorno
+  //Se não tiver 'li' selecionado, retorno o array padrão recebi pelo back-end
   addFilter(values: Map<string, string[]>) {
-    const keys = values.keys();
     const dataTableFiltered = new DataTable();
-    //Pego todos as chaves do filtros passado
-    for (let key of keys) {
-      //Usando a chave, seleciono o array e filtro os dados do data table para conversão
-      values.get(key).forEach(_value =>
-        dataTableFiltered.datas = this.dataTable.datas.filter((a, i, arr) =>
-          a.ramo == _value))
+    dataTableFiltered.datas = [];
+   //Função onde recebo o nome do campo para filtrar os valores
+    let functionFilter = (key: string) => {
+      (this.dataTable.datas.filter((data: any) => values.get(key).includes(data[key])))
+        .forEach(data => {
+          if (!dataTableFiltered.datas.includes(data)) dataTableFiltered.datas.push(data)
+        });
+      this.filters.clear();
+      this.createFieldsMap(dataTableFiltered)
     }
-
+    if (values.get('local').length != 0) {
+      functionFilter('local');
+      return this.filters;
+    }
+    if (values.get('rede').length != 0) {
+      functionFilter('rede');
+      return this.filters;
+    }
+    if (values.get('ramo').length != 0) {
+      functionFilter('ramo');
+      return this.filters;
+    }
     this.filters.clear();
-    this.createFieldsMap(dataTableFiltered)
+    this.createFieldsMap(this.dataTable)
     return this.filters;
   }
+
 }
