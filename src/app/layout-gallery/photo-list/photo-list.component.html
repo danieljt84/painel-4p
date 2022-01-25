@@ -1,15 +1,14 @@
 <app-card>
   <div class="container">
     <div class="row">
-        <div class="col-sm-12 col-lg-4">
-            <app-photo></app-photo>
-        </div>
-        <div class="col-sm-12 col-lg-4">
-            <app-photo></app-photo>
-        </div>
-        <div class="col-sm-12 col-lg-4">
-            <app-photo></app-photo>
-        </div>
+      <div class="col-lg-12">
+        <button type="submit" class="galerry-button">Agendar Book</button>
+      </div>
     </div>
-</div>
+    <div class="row" *ngFor="let dataPhotoGrids of rows">
+      <div class="col-sm-12 col-lg-4" *ngFor="let dataPhotoGrid of dataPhotoGrids">
+        <app-photo [dataPhotoGrid]="dataPhotoGrid"></app-photo>
+      </div>
+    </div>
+  </div>
 </app-card>

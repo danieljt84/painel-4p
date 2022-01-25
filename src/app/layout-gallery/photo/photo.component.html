@@ -1,12 +1,12 @@
 <div class="card-photo card">
     <img class="img-card"
-        src="https://picviewer.umov.me/Pic/GetImage?id=353771036&token=a8fb98b6a80e025f7582b29df30c8252"
+        [src]="dataPhotoGrid.url"
         alt="Card image cap">
     <div class="card-body">
-        <p class="card-text">Data: 05/01/2022</p>
-        <p class="card-text">Local: ATACADÃO REALENGO</p>
-        <p class="card-text">Promotor: ATACADÃO REALENGO GRADE 2</p>
-        <p class="card-text">SEÇÃO: FOTO DEPOIS</p>
+        <p class="card-text">Data: {{dataPhotoGrid.data}}</p>
+        <p class="card-text">Local: {{dataPhotoGrid.local}}</p>
+        <p class="card-text">Promotor: {{dataPhotoGrid.promotor}}</p>
+        <p class="card-text">SEÇÃO: {{dataPhotoGrid.secao}}</p>
         <span>LINK DA FOTO</span>
     </div>
 </div>

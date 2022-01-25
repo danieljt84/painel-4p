@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { DataPhoto } from 'src/app/model/gallery/data-photo';
+import { DataPhotoGrid } from 'src/app/model/gallery/data-photo-grid';
 
 @Component({
   selector: 'app-photo',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./photo.component.css']
 })
 export class PhotoComponent implements OnInit {
+
+  @Input() dataPhotoGrid:DataPhotoGrid;
 
   constructor() { }
 
