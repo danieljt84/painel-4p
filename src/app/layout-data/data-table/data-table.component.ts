@@ -16,14 +16,14 @@ import { MatTableDataSource } from '@angular/material/table';
     ]),
   ],
 })
-export class DataTableComponent implements OnInit,AfterViewInit {
+export class DataTableComponent implements OnInit, AfterViewInit {
 
   title = 'angular-mat-table-example';
   @ViewChild(MatSort) sort: MatSort;
 
 
-  dataSource = new MatTableDataSource<User>();
-  columnsToDisplay = ['id', 'name', 'username', 'email', 'address'];
+  dataSource = new MatTableDataSource<dados>();
+  columnsToDisplay = ['id','local', 'rede', 'ramo'];
 
   toggleRow(element: { expanded: boolean; }) {
     // Uncommnet to open only single row at once
@@ -45,80 +45,123 @@ export class DataTableComponent implements OnInit,AfterViewInit {
 
   constructor() {
     this.dataSource.data = ELEMENT_DATA;
-   }
+  }
 
   ngOnInit(): void {
+    console.log(this.dataSource.data);
   }
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
   }
 }
-export interface User {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-  address: string;
-  phone: string;
-  website: string;
-  company: string;
+export interface dados {
+  empresa: string;
+  local: string;
+  rede: string;
+  ramo: string;
+  pesquisa_dados: Pesquisa_Dados[];
   expanded: boolean;
 }
 
-const ELEMENT_DATA: User[] = [
+export interface Pesquisa_Dados {
+  item: string;
+  valor: number;
+  estoque: number;
+  validade: Date;
+  status: string;
+}
+
+const ELEMENT_DATA: dados[] = [
   {
-    "id": 123,
-    "name": "Leanne Graham",
-    "username": "Bret",
-    "email": "Sincere@april.biz",
-    "address": "Kulas Light Apt. 556 Gwenborough",
-    "phone": "1-770-736-8031 x56442",
-    "website": "hildegard.org",
-    "company": "Romaguera-Crona",
+    "empresa": "PRAMESA",
+    "local": "'ATACADÃO NOVA",
+    "rede": "ATACADÃO",
+    "ramo": "ATACADO",
+    "pesquisa_dados": [
+      {
+        'item': "MOLHO DE TOMATE 320G",
+        'valor': 3.29,
+        'estoque': 10,
+        'validade': new Date("2019-01-16"),
+        'status':'Em estoque'
+      },
+      {
+        'item': "MOLHO DE TOMATE 400G",
+        'valor': 3.29,
+        'estoque': 10,
+        'validade': new Date("2019-01-16"),
+        'status':'Em estoque'
+      }
+    ],
     "expanded": false
   },
   {
-    "id": 52,
-    "name": "Ervin Howell",
-    "username": "Antonette",
-    "email": "Shanna@melissa.tv",
-    "address": "Victor Plains Suite 879 Wisokyburgh",
-    "phone": "010-692-6593 x09125",
-    "website": "anastasia.net",
-    "company": "Deckow-Crist",
+    "empresa": "PRAMESA",
+    "local": "'ATACADÃO VELHO",
+    "rede": "ATACADÃO",
+    "ramo": "ATACADO",
+    "pesquisa_dados": [
+      {
+        'item': "MOLHO DE TOMATE 320G",
+        'valor': 3.29,
+        'estoque': 10,
+        'validade': new Date("2019-01-16"),
+        'status':'Em estoque'
+      },
+      {
+        'item': "MOLHO DE TOMATE 400G",
+        'valor': 3.29,
+        'estoque': 10,
+        'validade': new Date("2019-01-16"),
+        'status':'Em estoque'
+      }
+    ],
     "expanded": false
   },
   {
-    "id": 62,
-    "name": "Clementine Bauch",
-    "username": "Samantha",
-    "email": "Nathan@yesenia.net",
-    "address": "Douglas Extension Suite 847 McKenziehaven",
-    "phone": "1-463-123-4447",
-    "website": "ramiro.info",
-    "company": "Romaguera-Jacobson",
+    "empresa": "PRAMESA",
+    "local": "'ASSAI NOVA",
+    "rede": "ASSAI",
+    "ramo": "ATACADO",
+    "pesquisa_dados": [
+      {
+        'item': "MOLHO DE TOMATE 320G",
+        'valor': 3.29,
+        'estoque': 10,
+        'validade': new Date("2019-01-16"),
+        'status':'Em estoque'
+      },
+      {
+        'item': "MOLHO DE TOMATE 400G",
+        'valor': 3.29,
+        'estoque': 10,
+        'validade': new Date("2019-01-16"),
+        'status':'Em estoque'
+      }
+    ],
     "expanded": false
   },
   {
-    "id": 65,
-    "name": "Patricia Lebsack",
-    "username": "Karianne",
-    "email": "Julianne.OConner@kory.org",
-    "address": "Hoeger Mall Apt. 692 South Elvis",
-    "phone": "493-170-9623 x156",
-    "website": "kale.biz",
-    "company": "Robel-Corkery",
-    "expanded": false
-  },
-  {
-    "id": 84,
-    "name": "Chelsey Dietrich",
-    "username": "Kamren",
-    "email": "Lucio_Hettinger@annie.ca",
-    "address": "Skiles Walks Suite 351 Roscoeview",
-    "phone": "(254)954-1289",
-    "website": "demarco.info",
-    "company": "Keebler LLC",
+    "empresa": "PRAMESA",
+    "local": "'ASSAI VELHO",
+    "rede": "ASSAI",
+    "ramo": "ATACADO",
+    "pesquisa_dados": [
+      {
+        'item': "MOLHO DE TOMATE 320G",
+        'valor': 3.29,
+        'estoque': 10,
+        'validade': new Date("2019-01-16"),
+        'status':'Em estoque'
+      },
+      {
+        'item': "MOLHO DE TOMATE 400G",
+        'valor': 3.29,
+        'estoque': 10,
+        'validade': new Date("2019-01-16"),
+        'status':'Em estoque'
+      }
+    ],
     "expanded": false
   }
 ];

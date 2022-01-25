@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Data } from '../model/data';
 import { DataTable } from '../model/data-table';
 
 @Injectable({
@@ -84,3 +83,99 @@ export class DataTableService {
   }
 
 }
+
+const ELEMENT_DATA: dados[] = [
+  {
+    "empresa": "PRAMESA",
+    "local": "'ATACADÃO NOVA",
+    "rede": "ATACADÃO",
+    "ramo": "ATACADO",
+    "pesquisa_dados": [
+      {
+        'item': "MOLHO DE TOMATE 320G",
+        'valor': 3.29,
+        'estoque': 10,
+        'validade': new Date("2019-01-16"),
+        'status':'Em estoque'
+      },
+      {
+        'item': "MOLHO DE TOMATE 400G",
+        'valor': 3.29,
+        'estoque': 10,
+        'validade': new Date("2019-01-16"),
+        'status':'Em estoque'
+      }
+    ],
+    "expanded": false
+  },
+  {
+    "empresa": "PRAMESA",
+    "local": "'ATACADÃO VELHO",
+    "rede": "ATACADÃO",
+    "ramo": "ATACADO",
+    "pesquisa_dados": [
+      {
+        'item': "MOLHO DE TOMATE 320G",
+        'valor': 3.29,
+        'estoque': 10,
+        'validade': new Date("2019-01-16"),
+        'status':'Em estoque'
+      },
+      {
+        'item': "MOLHO DE TOMATE 400G",
+        'valor': 3.29,
+        'estoque': 10,
+        'validade': new Date("2019-01-16"),
+        'status':'Em estoque'
+      }
+    ],
+    "expanded": false
+  },
+  {
+    "empresa": "PRAMESA",
+    "local": "'ASSAI NOVA",
+    "rede": "ASSAI",
+    "ramo": "ATACADO",
+    "pesquisa_dados": [
+      {
+        'item': "MOLHO DE TOMATE 320G",
+        'valor': 3.29,
+        'estoque': 10,
+        'validade': new Date("2019-01-16"),
+        'status':'Em estoque'
+      },
+      {
+        'item': "MOLHO DE TOMATE 400G",
+        'valor': 3.29,
+        'estoque': 10,
+        'validade': new Date("2019-01-16"),
+        'status':'Em estoque'
+      }
+    ],
+    "expanded": false
+  },
+  {
+    "empresa": "PRAMESA",
+    "local": "'ASSAI VELHO",
+    "rede": "ASSAI",
+    "ramo": "ATACADO",
+    "pesquisa_dados": [
+      {
+        'item': "MOLHO DE TOMATE 320G",
+        'valor': 3.29,
+        'estoque': 10,
+        'validade': new Date("2019-01-16"),
+        'status':'Em estoque'
+      },
+      {
+        'item': "MOLHO DE TOMATE 400G",
+        'valor': 3.29,
+        'estoque': 10,
+        'validade': new Date("2019-01-16"),
+        'status':'Em estoque'
+      }
+    ],
+    "expanded": false
+  }
+];
+

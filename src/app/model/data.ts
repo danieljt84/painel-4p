@@ -1,16 +1,11 @@
-export class Data{
-  constructor(data: string,industria: string,ramo: string,rede: string,local: string,tipoPesquisa: string){
-    this.data = data;
-    this.industria = industria;
-    this.ramo = ramo;
-    this.rede = rede;
-    this.local = local;
-    this.tipoPesquisa = tipoPesquisa;
-  }
+import { Pesquisa_data } from "./pesquisa_data";
+
+export interface Data{
   data:string;
-  industria:string;
+  empresa:string;
   ramo:string;
   rede:string;
   local:string;
   tipoPesquisa:string;
+  pesquisa_Data:Pesquisa_data[];
 }

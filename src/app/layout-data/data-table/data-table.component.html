@@ -16,14 +16,19 @@
       <div class="example-element-detail" [@detailExpand]="element.expanded ? 'expanded' : 'collapsed'">
         <table class="detail-table">
           <tr>
-            <th>Phone</th>
-            <th>Website</th>
-            <th>Company</th>
+            <th>Item</th>
+            <th>Valor</th>
+            <th>Estoque</th>
+            <th>Validade</th>
+            <th>Status</th>
           </tr>
-          <tr>
-            <td>{{element.phone}}</td>
-            <td>{{element.website}}</td>
-            <td>{{element.company}}</td>
+          <tr *ngFor="let pesquisa_dado of element.pesquisa_dados">
+            <td>{{pesquisa_dado.item}}</td>
+            <td>{{pesquisa_dado.valor}}</td>
+            <td>{{pesquisa_dado.estoque}}</td>
+            <td>{{pesquisa_dado.validade | date:'d/MM/yyyy'}}</td>
+            <td>{{pesquisa_dado.status}}</td>
+
           </tr>
         </table>
       </div>
