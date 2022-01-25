@@ -2,6 +2,7 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Data } from '@angular/router';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class DataTableComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort: MatSort;
 
 
-  dataSource = new MatTableDataSource<dados>();
+  dataSource = new MatTableDataSource<Data>();
   columnsToDisplay = ['id','local', 'rede', 'ramo'];
 
   toggleRow(element: { expanded: boolean; }) {
@@ -54,114 +55,3 @@ export class DataTableComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 }
-export interface dados {
-  empresa: string;
-  local: string;
-  rede: string;
-  ramo: string;
-  pesquisa_dados: Pesquisa_Dados[];
-  expanded: boolean;
-}
-
-export interface Pesquisa_Dados {
-  item: string;
-  valor: number;
-  estoque: number;
-  validade: Date;
-  status: string;
-}
-
-const ELEMENT_DATA: dados[] = [
-  {
-    "empresa": "PRAMESA",
-    "local": "'ATACADÃO NOVA",
-    "rede": "ATACADÃO",
-    "ramo": "ATACADO",
-    "pesquisa_dados": [
-      {
-        'item': "MOLHO DE TOMATE 320G",
-        'valor': 3.29,
-        'estoque': 10,
-        'validade': new Date("2019-01-16"),
-        'status':'Em estoque'
-      },
-      {
-        'item': "MOLHO DE TOMATE 400G",
-        'valor': 3.29,
-        'estoque': 10,
-        'validade': new Date("2019-01-16"),
-        'status':'Em estoque'
-      }
-    ],
-    "expanded": false
-  },
-  {
-    "empresa": "PRAMESA",
-    "local": "'ATACADÃO VELHO",
-    "rede": "ATACADÃO",
-    "ramo": "ATACADO",
-    "pesquisa_dados": [
-      {
-        'item': "MOLHO DE TOMATE 320G",
-        'valor': 3.29,
-        'estoque': 10,
-        'validade': new Date("2019-01-16"),
-        'status':'Em estoque'
-      },
-      {
-        'item': "MOLHO DE TOMATE 400G",
-        'valor': 3.29,
-        'estoque': 10,
-        'validade': new Date("2019-01-16"),
-        'status':'Em estoque'
-      }
-    ],
-    "expanded": false
-  },
-  {
-    "empresa": "PRAMESA",
-    "local": "'ASSAI NOVA",
-    "rede": "ASSAI",
-    "ramo": "ATACADO",
-    "pesquisa_dados": [
-      {
-        'item': "MOLHO DE TOMATE 320G",
-        'valor': 3.29,
-        'estoque': 10,
-        'validade': new Date("2019-01-16"),
-        'status':'Em estoque'
-      },
-      {
-        'item': "MOLHO DE TOMATE 400G",
-        'valor': 3.29,
-        'estoque': 10,
-        'validade': new Date("2019-01-16"),
-        'status':'Em estoque'
-      }
-    ],
-    "expanded": false
-  },
-  {
-    "empresa": "PRAMESA",
-    "local": "'ASSAI VELHO",
-    "rede": "ASSAI",
-    "ramo": "ATACADO",
-    "pesquisa_dados": [
-      {
-        'item': "MOLHO DE TOMATE 320G",
-        'valor': 3.29,
-        'estoque': 10,
-        'validade': new Date("2019-01-16"),
-        'status':'Em estoque'
-      },
-      {
-        'item': "MOLHO DE TOMATE 400G",
-        'valor': 3.29,
-        'estoque': 10,
-        'validade': new Date("2019-01-16"),
-        'status':'Em estoque'
-      }
-    ],
-    "expanded": false
-  }
-];

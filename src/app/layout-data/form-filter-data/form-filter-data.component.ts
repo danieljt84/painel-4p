@@ -38,6 +38,10 @@ export class FormFilterDataComponent implements OnInit {
       }
     })
   }
+
+  submitFilter(){
+     this.dataTableService()
+  }
   //cria os arrays dos filtros selecionados
   createFieldsSelectedMap() {
     this.filtersSelected.set('industria', []);

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Data } from '@angular/router';
 import { DataTable } from '../model/data-table';
 
 @Injectable({
@@ -28,14 +29,14 @@ export class DataTableService {
   //Insere os filtros possiveis para cada tipo
   //Retira os valores repetidos
   createFieldsMap(dataTable: DataTable) {
-    this.filters.set('industria', []);
+    this.filters.set('empresa', []);
     this.filters.set('ramo', []);
     this.filters.set('rede', []);
     this.filters.set('local', []);
     this.filters.set('tipoPesquisa', []);
 
     dataTable.datas.forEach(value => {
-      this.filters.get('industria').push(value.industria);
+      this.filters.get('industria').push(value.empresa);
       this.filters.get('ramo').push(value.ramo);
       this.filters.get('rede').push(value.rede);
       this.filters.get('local').push(value.local);
@@ -84,7 +85,7 @@ export class DataTableService {
 
 }
 
-const ELEMENT_DATA: dados[] = [
+const datas: Data[] = [
   {
     "empresa": "PRAMESA",
     "local": "'ATACADÃO NOVA",
