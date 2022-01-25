@@ -23,7 +23,7 @@
               <div class="input-group-gallery">
               <app-field-filter [label]="'Local'"[filterBehaviorSubject]="filterBehaviorSubject"  [id_input]="'local'" [filters]="filters.get('local')"></app-field-filter>
               <app-field-filter [label]="'Tipo de Pesquisa '"[filterBehaviorSubject]="filterBehaviorSubject"  [id_input]="'tipoPesquisa'" [filters]="filters.get('tipoPesquisa')"></app-field-filter>
-                <button type="submit" (submit)="" class="galerry-button">Filtrar</button>
+                <button type="submit" (click)="submitFilter()" class="galerry-button">Filtrar</button>
               </div>
             </div>
           </div>

@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { BehaviorSubject, filter } from 'rxjs';
-import { DataTable } from 'src/app/model/data-table';
+import { Data } from 'src/app/model/data';
 import { DataTableService } from 'src/app/service/data-table.service';
+import { EventEmiterService } from 'src/app/service/event-emiter.service';
+
 declare var $: any;
 
 @Component({
@@ -11,13 +13,11 @@ declare var $: any;
 })
 export class FormFilterDataComponent implements OnInit {
 
-  values: DataTable;
   filters: Map<string, string[]>;
   filtersSelected: Map<string, string[]>;
   filterBehaviorSubject: BehaviorSubject<any[]>;
 
   constructor(private dataTableService: DataTableService) {
-    this.values = this.dataTableService.getDataTable();
     this.filters = this.dataTableService.getFieldsTable();
     this.filtersSelected = new Map<string, string[]>();
     this.filterBehaviorSubject = new BehaviorSubject<any[]>(null);
@@ -38,9 +38,9 @@ export class FormFilterDataComponent implements OnInit {
       }
     })
   }
-
+  //Ao clickar no submit é disparado um evento global, que será capturado pelo componente da tabela de dadoss
   submitFilter(){
-     this.dataTableService()
+    EventEmiterService.get('submitFilter').emit(true);
   }
   //cria os arrays dos filtros selecionados
   createFieldsSelectedMap() {

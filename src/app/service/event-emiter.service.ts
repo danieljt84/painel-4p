@@ -1,5 +1,4 @@
-import { Injectable } from '@angular/core';
-import { EventEmitter } from 'stream';
+import { EventEmitter, Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -7,11 +6,11 @@ import { EventEmitter } from 'stream';
 export class EventEmiterService {
 
   private static emitters: {
-    [nomeEvento: string]: EventEmitter
+    [nomeEvento: string]: EventEmitter<any>
   } = {}
   constructor() { }
 
-  static get(nomeEvento: string): EventEmitter {
+  static get(nomeEvento: string): EventEmitter<any> {
     if (!this.emitters[nomeEvento])
       this.emitters[nomeEvento] = new EventEmitter();
     return this.emitters[nomeEvento];

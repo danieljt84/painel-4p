@@ -2,7 +2,9 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Data } from '@angular/router';
+import { EventEmiterService } from 'src/app/service/event-emiter.service';
+import { DataTableService } from 'src/app/service/data-table.service';
+import { Data } from 'src/app/model/data';
 
 
 @Component({
@@ -20,6 +22,7 @@ import { Data } from '@angular/router';
 export class DataTableComponent implements OnInit, AfterViewInit {
 
   title = 'angular-mat-table-example';
+  values:Data[] = [];
   @ViewChild(MatSort) sort: MatSort;
 
 
@@ -36,7 +39,7 @@ export class DataTableComponent implements OnInit, AfterViewInit {
 
 
   manageAllRows(flag: boolean) {
-    ELEMENT_DATA.forEach(row => {
+    this.values.forEach(row => {
       row.expanded = flag;
     })
   }
@@ -44,12 +47,19 @@ export class DataTableComponent implements OnInit, AfterViewInit {
     this.dataSource.filter = value.trim().toLocaleLowerCase();
   }
 
-  constructor() {
-    this.dataSource.data = ELEMENT_DATA;
+  constructor(private dataTableService:DataTableService) {
+    this.values = this.dataTableService.getDataTable();
+    this.dataSource.data = this.values;
   }
 
   ngOnInit(): void {
-    console.log(this.dataSource.data);
+  //Me inscrevo no evento gerado pelo clique do submit
+  //Atualizo o dataSouce com os dados filtrados
+   EventEmiterService.get('submitFilter').subscribe(value=> {
+     if(value){
+       this.dataSource.data = this.dataTableService.getDataTable();
+     }
+   });
   }
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;

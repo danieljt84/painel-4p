@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { DataTable } from 'src/app/model/data-table';
 declare var $: any;
 
 @Component({
