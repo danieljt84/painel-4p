@@ -22,6 +22,10 @@ nav span{
   letter-spacing: 3px;
 }
 
+.span-brand{
+  color: white;
+}
+
 nav img{
   position: relative;
   width: inherit;

@@ -23,6 +23,7 @@ import { FilterPipePipe } from './pipe/filter-pipe.pipe';
 import { FormsModule } from '@angular/forms';
 import { FieldFilterComponent } from './layout-data/form-filter-data/field-filter/field-filter.component';
 import { OutsideClickDirective } from './directive/outside-click.directive';
+import { NavTesteComponent } from './teste/nav-teste/nav-teste.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,8 @@ import { OutsideClickDirective } from './directive/outside-click.directive';
     FormFilterDataComponent,
     FilterPipePipe,
     FieldFilterComponent,
-    OutsideClickDirective
+    OutsideClickDirective,
+    NavTesteComponent
   ],
   imports: [
     BrowserModule,
