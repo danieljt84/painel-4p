@@ -40,7 +40,7 @@ export class PhotoListComponent implements OnInit, OnChanges {
       data.photos.forEach(photo => {
         let newdataGrid: DataPhotoGrid;
         newdataGrid = dataGrid;
-        dataGrid.secao = photo.seçao;
+        dataGrid.secao = photo.secao;
         dataGrid.url = photo.url;
         this.datasGrid.push(dataGrid);
       })

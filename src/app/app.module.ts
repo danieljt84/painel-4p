@@ -9,7 +9,6 @@ import { NavComponent } from './nav/nav.component';
 import { LayoutGalleryComponent } from './layout-gallery/layout-gallery.component';
 import { PhotoListComponent } from './layout-gallery/photo-list/photo-list.component';
 import { PhotoComponent } from './layout-gallery/photo/photo.component';
-import { FormFilterComponent } from './layout-gallery/form-filter/form-filter.component';
 import { CardComponent } from './shared/card/card.component';
 import { DataTableComponent } from './layout-data/data-table/data-table.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -24,6 +23,7 @@ import { FormsModule } from '@angular/forms';
 import { FieldFilterComponent } from './layout-data/form-filter-data/field-filter/field-filter.component';
 import { OutsideClickDirective } from './directive/outside-click.directive';
 import { NavTesteComponent } from './teste/nav-teste/nav-teste.component';
+import { FormFilterGalleryComponent } from './layout-gallery/form-filter-gallery/form-filter-gallery.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +32,6 @@ import { NavTesteComponent } from './teste/nav-teste/nav-teste.component';
     LayoutGalleryComponent,
     PhotoListComponent,
     PhotoComponent,
-    FormFilterComponent,
     CardComponent,
     DataTableComponent,
     GalleryComponent,
@@ -40,7 +39,8 @@ import { NavTesteComponent } from './teste/nav-teste/nav-teste.component';
     FilterPipePipe,
     FieldFilterComponent,
     OutsideClickDirective,
-    NavTesteComponent
+    NavTesteComponent,
+    FormFilterGalleryComponent
   ],
   imports: [
     BrowserModule,

@@ -1,17 +1,19 @@
 <div class="input-group-r" (outsideClick)="sendFilter()">
-  <label [for]="id_input">{{label}}</label>
-  <input type="text" (click)="toggleList($event)" class="input-gallery" readonly placeholder="Selecione:" [id]="id_input" />
-  <ul [id]="id_ul" class="ul">
-    <li>
+  <span>{{label}}</span>
+  <div>
+    <input type="text" (click)="toggleList($event)" class="input-gallery form-control" readonly placeholder="Selecione:" [id]="id_input" />
+    <ul [id]="id_ul" class="ul">
+      <li>
+        <div>
+          <input [(ngModel)]="search" type="text">
+        </div>
+      </li>
       <div>
-        <input [(ngModel)]="search" type="text">
+        <ng-container *ngFor="let filter of filters | filterPipe: search">
+          <li *ngIf="isSelected(filter)" class="li selected" (click)="getValueLi($event)">{{filter}}</li>
+          <li *ngIf="!isSelected(filter)" class="li" (click)="getValueLi($event)">{{filter}}</li>
+        </ng-container>
       </div>
-    </li>
-    <div>
-      <ng-container *ngFor="let filter of filters | filterPipe: search">
-        <li *ngIf="isSelected(filter)" class="li selected" (click)="getValueLi($event)">{{filter}}</li>
-        <li *ngIf="!isSelected(filter)" class="li" (click)="getValueLi($event)">{{filter}}</li>
-      </ng-container>
-    </div>
-  </ul>
+    </ul>
+  </div>
 </div>
