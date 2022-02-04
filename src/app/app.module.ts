@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
@@ -24,12 +23,14 @@ import { FieldFilterComponent } from './layout-data/form-filter-data/field-filte
 import { OutsideClickDirective } from './directive/outside-click.directive';
 import { NavTesteComponent } from './teste/nav-teste/nav-teste.component';
 import { FormFilterGalleryComponent } from './layout-gallery/form-filter-gallery/form-filter-gallery.component';
+import { LayoutDataComponent } from './layout-data/layout-data.component';
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     NavComponent,
     LayoutGalleryComponent,
+    LayoutDataComponent,
     PhotoListComponent,
     PhotoComponent,
     CardComponent,

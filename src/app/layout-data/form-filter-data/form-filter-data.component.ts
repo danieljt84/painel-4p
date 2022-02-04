@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { BehaviorSubject, filter } from 'rxjs';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { BehaviorSubject, filter, Subscription } from 'rxjs';
 import { Data } from 'src/app/model/data';
 import { DataTableService } from 'src/app/service/data-table.service';
 import { EventEmiterService } from 'src/app/service/event-emiter.service';
@@ -11,11 +11,12 @@ declare var $: any;
   templateUrl: './form-filter-data.component.html',
   styleUrls: ['./form-filter-data.component.css'],
 })
-export class FormFilterDataComponent implements OnInit {
+export class FormFilterDataComponent implements OnInit,OnDestroy {
 
   filters: Map<string, string[]>;
   filtersSelected: Map<string, string[]>;
   filterBehaviorSubject: BehaviorSubject<any[]>;
+  subscription: Subscription;
 
   constructor(private dataTableService: DataTableService) {
     this.filters = this.dataTableService.getFieldsTable();
@@ -26,7 +27,7 @@ export class FormFilterDataComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.filterBehaviorSubject.subscribe(values => {
+    this.subscription = this.filterBehaviorSubject.subscribe(values => {
       if (values != null) {
         if (this.filtersSelected.get(values[0]) != null) {
           while (this.filtersSelected.get(values[0]).length) {
@@ -36,7 +37,11 @@ export class FormFilterDataComponent implements OnInit {
           this.filters = this.dataTableService.addFilter(this.filtersSelected);
         }
       }
-    })
+    });
+  }
+
+  ngOnDestroy(): void {
+      this.subscription.unsubscribe();
   }
   //Ao clickar no submit é disparado um evento global, que será capturado pelo componente da tabela de dadoss
   submitFilter(){

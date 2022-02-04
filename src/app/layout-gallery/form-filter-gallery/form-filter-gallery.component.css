@@ -2,7 +2,7 @@
   margin-bottom: 1rem !important;
   position: relative;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   width: 100%;
   justify-content: space-between;
@@ -25,14 +25,13 @@
   color: white;
   background: #ff6047;
   border-radius: 4px;
-  margin-left: auto;
 }
 .card{
   margin-bottom: 10px;
 }
-
 .input-group-r{
   display: flex;
   align-items: center;
   flex-direction: row;
+  margin: 0 5px 5px 0;
 }

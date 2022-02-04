@@ -87,7 +87,7 @@ export class FieldFilterComponent implements OnInit {
       if (this.input.target.classList.contains('clickable')) {
         this.input.target.classList.remove('clickable')
         $("#" + this.id_ul).css('visibility', 'hidden');
-        if (this.liSelected.length != 0) this.addfilter(this.label, this.liSelected);
+        if (this.liSelected.length != 0) this.addfilter(this.id_input, this.liSelected);
       }
     }
   }
@@ -95,7 +95,7 @@ export class FieldFilterComponent implements OnInit {
   removeFilter() {
     if (this.input != '') {
       if (this.input.target.classList.contains('clickable')) {
-        this.addfilter(this.label, this.liSelected);
+        this.addfilter(this.id_input, this.liSelected);
       }
     }
   }

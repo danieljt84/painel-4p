@@ -16,3 +16,14 @@
   align-content: center;
   flex-wrap: wrap;
 }
+.galerry-button {
+  width: 110px;
+  height: 45px;
+  left: 1201px;
+  top: 230px;
+  font-family: roboto;
+  color: white;
+  background: #ff6047;
+  border-radius: 4px;
+  margin-left: auto;
+}

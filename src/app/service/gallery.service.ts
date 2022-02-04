@@ -17,8 +17,13 @@ export class GalleryService {
     this.createFieldsMap(this.dataPhotos);
   }
 
+  //Se tem dados filtrado, envia os filtrados
   getDataPhotos() {
-    return this.dataPhotos;
+    if(this.datasPhotosFiltered.length==0){
+      return this.dataPhotos;
+    }else{
+      return this.datasPhotosFiltered;
+    }
   }
 
   getFieldsTable() {

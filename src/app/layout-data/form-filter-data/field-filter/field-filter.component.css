@@ -12,6 +12,7 @@
   display: flex;
   align-items: center;
   flex-direction: row;
+  margin: 0 5px 5px 0;
 }
 .input-group-r ul{
   overflow:hidden;

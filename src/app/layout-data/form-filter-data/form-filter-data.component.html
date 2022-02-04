@@ -3,28 +3,33 @@
     <app-card>
       <div class="container">
         <div class="row">
+          <h2 class="tilte-card">Filtros</h2>
+        </div>
+        <div class="row">
           <div class="col-lg-12 col-md-3">
             <div class="input-group-gallery">
-              <label for="dataInicial">Data: </label>
-              <input type="date" class="input-gallery" id="dataInicial" />
-              <input type="date" class="input-gallery" id="dataFinal" />
-              <label for="industria">Industria: </label>
-              <input
-                type="text"
-                class="input-gallery"
-                value="Pramesa"
-                readonly
-                id="industria"
-              />
-              <app-field-filter [label]="'Ramo'" [filterBehaviorSubject]="filterBehaviorSubject" [id_input]="'ramo'" [filters]="filters.get('ramo')"></app-field-filter>
-              <app-field-filter [label]="'Rede'"[filterBehaviorSubject]="filterBehaviorSubject"  [id_input]="'rede'" [filters]="filters.get('rede')"></app-field-filter>
-            </div>
-            <div class="col-lg-12 col-md-3">
-              <div class="input-group-gallery">
-              <app-field-filter [label]="'Local'"[filterBehaviorSubject]="filterBehaviorSubject"  [id_input]="'local'" [filters]="filters.get('local')"></app-field-filter>
-              <app-field-filter [label]="'Tipo de Pesquisa '"[filterBehaviorSubject]="filterBehaviorSubject"  [id_input]="'tipoPesquisa'" [filters]="filters.get('tipoPesquisa')"></app-field-filter>
-                <button type="submit" (click)="submitFilter()" class="galerry-button">Filtrar</button>
+              <div class="input-group-r">
+                <span>Data: </span>
+                <input type="date" class="input-gallery form-control" id="dataInicial" />
+                <input type="date" class="input-gallery form-control" id="dataFinal" />
               </div>
+              <div class="input-group-r">
+                <span>Industria: </span>
+                <input type="text" class="input-gallery form-control" value="Pramesa" readonly id="industria" />
+              </div>
+              <app-field-filter [label]="'Ramo: '" [filterBehaviorSubject]="filterBehaviorSubject" [id_input]="'ramo'"
+                [filters]="filters.get('ramo')"></app-field-filter>
+            </div>
+          </div>
+          <div class="col-lg-12 col-md-3">
+            <div class="input-group-gallery">
+              <app-field-filter [label]="'Local: '" [filterBehaviorSubject]="filterBehaviorSubject" [id_input]="'local'"
+                [filters]="filters.get('local')"></app-field-filter>
+              <app-field-filter [label]="'Tipo de Pesquisa: '" [filterBehaviorSubject]="filterBehaviorSubject"
+                [id_input]="'tipoPesquisa'" [filters]="filters.get('tipoPesquisa')"></app-field-filter>
+                <app-field-filter [label]="'Rede: '" [filterBehaviorSubject]="filterBehaviorSubject" [id_input]="'rede'"
+                [filters]="filters.get('rede')"></app-field-filter>
+              <button type="submit" (click)="submitFilter()" class="galerry-button">Filtrar</button>
             </div>
           </div>
         </div>

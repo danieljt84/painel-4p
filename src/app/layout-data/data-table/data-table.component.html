@@ -1,43 +1,46 @@
-<div>
-  <mat-form-field>
-    <input #filter matInput type="text" (keyup)="doFilter(filter.value)" placeholder="Filter">
-  </mat-form-field>
-</div>
-<table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8" matSort>
-  <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{column}} </th>
-    <input matInput placeholder="Choose a date">
-    <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
-  </ng-container>
+<app-card>
+  <div class="container">
+    <div class="row">
+      <h2 class="tilte-card">Dados Pesquisa</h2>
+    </div>
+    <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8" matSort>
+      <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{column | uppercase}} </th>
+        <input matInput placeholder="Choose a date">
+        <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+      </ng-container>
 
-  <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
-  <ng-container matColumnDef="expandedDetail">
-    <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
-      <div class="example-element-detail" [@detailExpand]="element.expanded ? 'expanded' : 'collapsed'">
-        <table class="detail-table">
-          <tr>
-            <th>Item</th>
-            <th>Valor</th>
-            <th>Estoque</th>
-            <th>Validade</th>
-            <th>Status</th>
-          </tr>
-          <tr *ngFor="let pesquisa_dado of element.pesquisa_Data">
-            <td>{{pesquisa_dado.item}}</td>
-            <td>{{pesquisa_dado.valor}}</td>
-            <td>{{pesquisa_dado.estoque}}</td>
-            <td>{{pesquisa_dado.validade | date:'d/MM/yyyy'}}</td>
-            <td>{{pesquisa_dado.status}}</td>
+      <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+      <ng-container matColumnDef="expandedDetail">
+        <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+          <div class="example-element-detail" [@detailExpand]="element.expanded ? 'expanded' : 'collapsed'">
+            <table class="detail-table">
+              <tr>
+                <th>Item</th>
+                <th>Valor</th>
+                <th>Estoque</th>
+                <th>Validade</th>
+                <th>Status</th>
+              </tr>
+              <tr *ngFor="let pesquisa_dado of element.pesquisa_Data">
+                <td>{{pesquisa_dado.item}}</td>
+                <td>{{pesquisa_dado.valor}}</td>
+                <td>{{pesquisa_dado.estoque}}</td>
+                <td>{{pesquisa_dado.validade | date:'d/MM/yyyy'}}</td>
+                <td>{{pesquisa_dado.status}}</td>
 
-          </tr>
-        </table>
-      </div>
-    </td>
-  </ng-container>
+              </tr>
+            </table>
+          </div>
+        </td>
+      </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-  <tr mat-row *matRowDef="let element; columns: columnsToDisplay;" class="example-element-row"
-    [class.example-expanded-row]="element.expanded" (click)="toggleRow(element)">
-  </tr>
-  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
-</table>
+      <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+      <tr mat-row *matRowDef="let element; columns: columnsToDisplay;" class="example-element-row"
+        [class.example-expanded-row]="element.expanded" (click)="toggleRow(element)">
+      </tr>
+      <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+    </table>
+
+  </div>
+</app-card>
