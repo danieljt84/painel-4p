@@ -4,7 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { EventEmiterService } from 'src/app/service/event-emiter.service';
 import { DataTableService } from 'src/app/service/data-table.service';
-import { Data } from 'src/app/model/data';
+import { DataFile } from 'src/app/model/data-file';
 
 
 @Component({
@@ -22,11 +22,11 @@ import { Data } from 'src/app/model/data';
 export class DataTableComponent implements OnInit, AfterViewInit {
 
   title = 'angular-mat-table-example';
-  values:Data[] = [];
+  values:DataFile[] = [];
   @ViewChild(MatSort) sort: MatSort;
 
 
-  dataSource = new MatTableDataSource<Data>();
+  dataSource = new MatTableDataSource<DataFile>();
   columnsToDisplay = ['id','local', 'rede', 'ramo'];
 
   toggleRow(element: { expanded: boolean; }) {

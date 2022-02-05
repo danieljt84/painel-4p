@@ -1,4 +1,5 @@
-export interface photo{
+export interface Photo{
+  id:number
   url:string;
-  secao:string;
+  section:string;
 }

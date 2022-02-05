@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Data } from '../model/data';
+import { DataFile } from '../model/data-file';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -7,11 +8,11 @@ import { Data } from '../model/data';
 export class DataTableService {
 
   private filters: Map<string, string[]>;
-  datas: Data[];
-  datasFiltered:Data[]=[];
+  datas: DataFile[];
+  datasFiltered:DataFile[]=[];
 
-  constructor() {
-    this.createDatas();
+  constructor(private apiService:ApiService) {
+    apiService.getDatas().subscribe(data => this.datas = data);
     this.filters = new Map<string, string[]>();
     this.createFieldsMap(this.datas);
   }
@@ -32,18 +33,18 @@ export class DataTableService {
   //Cria os arrays dos filtros
   //Insere os filtros possiveis para cada tipo
   //Retira os valores repetidos
-  createFieldsMap(datas: Data[]) {
-    this.filters.set('empresa', []);
-    this.filters.set('ramo', []);
-    this.filters.set('rede', []);
-    this.filters.set('local', []);
+  createFieldsMap(datas: DataFile[]) {
+    this.filters.set('brand', []);
+    this.filters.set('project', []);
+    this.filters.set('chain', []);
+    this.filters.set('shop', []);
     this.filters.set('tipoPesquisa', []);
 
-    datas.forEach(value => {
-      this.filters.get('empresa').push(value.empresa);
-      this.filters.get('ramo').push(value.ramo);
-      this.filters.get('rede').push(value.rede);
-      this.filters.get('local').push(value.local);
+    datas.forEach(datafile => {
+      this.filters.get('brand').push(datafile.brand.name);
+      this.filters.get('project').push(datafile.project);
+      this.filters.get('chain').push(datafile.brand.chain.name);
+      this.filters.get('shop').push(datafile.shop.name);
     })
 
     //Removendo repetidos
@@ -61,125 +62,28 @@ export class DataTableService {
    this.datasFiltered = [];
    //Função onde recebo o nome do campo para filtrar os valores
     let functionFilter = (key: string) => {
-      this.datas.filter((data: any) => values.get(key).includes(data[key]))
+      this.datas.filter((data: any) => values.get(key).includes(data[key].name))
         .forEach(data => {
           if (!this.datasFiltered.includes(data)) this.datasFiltered.push(data)
         });
       this.filters.clear();
       this.createFieldsMap(this.datasFiltered)
     }
-    if (values.get('local').length != 0) {
-      functionFilter('local');
+    if (values.get('shop').length != 0) {
+      functionFilter('shop');
       return this.filters;
     }
-    if (values.get('rede').length != 0) {
-      functionFilter('rede');
+    if (values.get('chain').length != 0) {
+      functionFilter('chain');
       return this.filters;
     }
-    if (values.get('ramo').length != 0) {
-      functionFilter('ramo');
+    if (values.get('project').length != 0) {
+      functionFilter('project');
       return this.filters;
     }
     this.filters.clear();
     this.createFieldsMap(this.datas)
     return this.filters;
-  }
-
-  createDatas(){
-    this.datas = [
-      {
-        "empresa": "PRAMESA",
-        "local": "ATACADÃO NOVA",
-        "rede": "ATACADÃO",
-        "ramo": "ATACADO",
-        "pesquisa_Data": [
-          {
-            'item': "MOLHO DE TOMATE 320G",
-            'valor': 3.29,
-            'estoque': 10,
-            'validade': new Date("2019-01-16"),
-            'status':'Em estoque'
-          },
-          {
-            'item': "MOLHO DE TOMATE 400G",
-            'valor': 3.29,
-            'estoque': 10,
-            'validade': new Date("2019-01-16"),
-            'status':'Em estoque'
-          }
-        ],
-        "expanded": false
-      },
-      {
-        "empresa": "PRAMESA",
-        "local": "ATACADÃO VELHO",
-        "rede": "ATACADÃO",
-        "ramo": "ATACADO",
-        "pesquisa_Data": [
-          {
-            'item': "MOLHO DE TOMATE 320G",
-            'valor': 3.29,
-            'estoque': 10,
-            'validade': new Date("2019-01-16"),
-            'status':'Em estoque'
-          },
-          {
-            'item': "MOLHO DE TOMATE 400G",
-            'valor': 3.29,
-            'estoque': 10,
-            'validade': new Date("2019-01-16"),
-            'status':'Em estoque'
-          }
-        ],
-        "expanded": false
-      },
-      {
-        "empresa": "PRAMESA",
-        "local": "ASSAI NOVA",
-        "rede": "ASSAI",
-        "ramo": "ATACADO",
-        "pesquisa_Data": [
-          {
-            'item': "MOLHO DE TOMATE 320G",
-            'valor': 3.29,
-            'estoque': 10,
-            'validade': new Date("2019-01-16"),
-            'status':'Em estoque'
-          },
-          {
-            'item': "MOLHO DE TOMATE 400G",
-            'valor': 3.29,
-            'estoque': 10,
-            'validade': new Date("2019-01-16"),
-            'status':'Em estoque'
-          }
-        ],
-        "expanded": false
-      },
-      {
-        "empresa": "PRAMESA",
-        "local": "ASSAI VELHO",
-        "rede": "ASSAI",
-        "ramo": "ATACADO",
-        "pesquisa_Data": [
-          {
-            'item': "MOLHO DE TOMATE 320G",
-            'valor': 3.29,
-            'estoque': 10,
-            'validade': new Date("2019-01-16"),
-            'status':'Em estoque'
-          },
-          {
-            'item': "MOLHO DE TOMATE 400G",
-            'valor': 3.29,
-            'estoque': 10,
-            'validade': new Date("2019-01-16"),
-            'status':'Em estoque'
-          }
-        ],
-        "expanded": false
-      }
-    ];
   }
 }
 

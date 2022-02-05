@@ -45,12 +45,12 @@ export class FormFilterGalleryComponent implements OnInit, OnDestroy {
   }
   //cria os arrays dos filtros selecionados
   createFieldsSelectedMap() {
-    this.filtersSelected.set('industria', []);
-    this.filtersSelected.set('ramo', []);
-    this.filtersSelected.set('rede', []);
-    this.filtersSelected.set('local', []);
-    this.filtersSelected.set('promotor', []);
-    this.filtersSelected.set('secao', []);
+    this.filtersSelected.set('brand', []);
+    this.filtersSelected.set('project', []);
+    this.filtersSelected.set('chain', []);
+    this.filtersSelected.set('shop', []);
+    this.filtersSelected.set('promoter', []);
+    this.filtersSelected.set('section', []);
   }
 
 

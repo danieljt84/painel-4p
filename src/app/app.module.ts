@@ -24,6 +24,7 @@ import { OutsideClickDirective } from './directive/outside-click.directive';
 import { NavTesteComponent } from './teste/nav-teste/nav-teste.component';
 import { FormFilterGalleryComponent } from './layout-gallery/form-filter-gallery/form-filter-gallery.component';
 import { LayoutDataComponent } from './layout-data/layout-data.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +53,8 @@ import { LayoutDataComponent } from './layout-data/layout-data.component';
     FormsModule,
     MatSortModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

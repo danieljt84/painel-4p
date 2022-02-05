@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { BehaviorSubject, filter, Subscription } from 'rxjs';
-import { Data } from 'src/app/model/data';
 import { DataTableService } from 'src/app/service/data-table.service';
 import { EventEmiterService } from 'src/app/service/event-emiter.service';
 

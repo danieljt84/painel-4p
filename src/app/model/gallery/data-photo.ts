@@ -1,11 +1,11 @@
-import { photo } from "./photo";
+import { Photo } from "./photo";
 
 export interface DataPhoto{
-  empresa:string
+  brandName:string
   data:string;
-  ramo:string;
-  rede:string;
-  local:string;
-  promotor:string;
-  photos:photo[];
+  project:string;
+  chainName:string;
+  shopName:string;
+  promoterName:string;
+  photos:Photo[];
 }

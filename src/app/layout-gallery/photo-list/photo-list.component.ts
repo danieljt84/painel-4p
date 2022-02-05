@@ -1,6 +1,8 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { DataFile } from 'src/app/model/data-file';
 import { DataPhoto } from 'src/app/model/gallery/data-photo';
 import { DataPhotoGrid } from 'src/app/model/gallery/data-photo-grid';
+import { ApiService } from 'src/app/service/api.service';
 import { EventEmiterService } from 'src/app/service/event-emiter.service';
 import { GalleryService } from 'src/app/service/gallery.service';
 
@@ -11,11 +13,11 @@ import { GalleryService } from 'src/app/service/gallery.service';
 })
 export class PhotoListComponent implements OnInit {
 
-  @Input() datas: DataPhoto[] = [];
+  @Input() datas: DataFile[] = [];
   datasGrid: DataPhotoGrid[] = [];
   rows: any[] = [];
 
-  constructor(private galleryService: GalleryService) {
+  constructor(private galleryService: GalleryService,private apiService:ApiService) {
     this.datas = this.galleryService.getDataPhotos();
     this.transform();
     this.rows = this.groupColumns(this.datasGrid);
@@ -36,17 +38,16 @@ export class PhotoListComponent implements OnInit {
     this.datasGrid = [];
     this.datas.forEach(data => {
       let dataGrid: DataPhotoGrid = new DataPhotoGrid();
-      dataGrid.data = data.data;
-      dataGrid.local = data.local;
-      dataGrid.empresa = data.empresa;
-      dataGrid.promotor = data.promotor;
-      dataGrid.ramo = data.ramo;
-      dataGrid.rede = data.rede;
-      dataGrid.ramo = data.ramo;
+      dataGrid.data = data.date.toString();
+      dataGrid.local = data.shop.name;
+      dataGrid.empresa = data.brand.name;
+      dataGrid.promotor = data.promoter.name;
+      dataGrid.ramo = data.project;
+      dataGrid.rede = data.brand.chain.name;
       data.photos.forEach(photo => {
         let newdataGrid: DataPhotoGrid;
         newdataGrid = dataGrid;
-        dataGrid.secao = photo.secao;
+        dataGrid.secao = photo.section;
         dataGrid.url = photo.url;
         this.datasGrid.push(dataGrid);
       })
