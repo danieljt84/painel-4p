@@ -11,9 +11,12 @@ export class GalleryService {
   private filters: Map<string, string[]>;
   datas:DataFile[];
 
-  constructor(private apiService:ApiService) {
-    apiService.getDatas().subscribe(data => this.datas = data);
-    this.filters = new Map<string, string[]>();
+  constructor() {
+  }
+
+  transform(datas:DataFile[]){
+    this.datas = datas;
+    this.filters = new Map<string,string[]>();
     this.createFieldsMap(this.datas);
   }
 
@@ -75,10 +78,9 @@ export class GalleryService {
     datas.forEach(data => {
       if (!this.filters.get('brand').includes(data.brand.name)) this.filters.get('brand').push(data.brand.name);
       if (!this.filters.get('project').includes(data.project)) this.filters.get('project').push(data.project);
-      if (!this.filters.get('chain').includes(data.brand.chain.name)) this.filters.get('chain').push(data.brand.chain.name);
       if (!this.filters.get('shop').includes(data.shop.name)) this.filters.get('shop').push(data.shop.name);
       data.photos.forEach(photo => {
-        if (!this.filters.get('secao').includes(photo.section)) this.filters.get('section').push(photo.section)
+        if (!this.filters.get('section').includes(photo.section)) this.filters.get('section').push(photo.section)
       });
     });
   }

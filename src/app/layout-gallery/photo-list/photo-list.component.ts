@@ -38,12 +38,11 @@ export class PhotoListComponent implements OnInit {
     this.datasGrid = [];
     this.datas.forEach(data => {
       let dataGrid: DataPhotoGrid = new DataPhotoGrid();
-      dataGrid.data = data.date.toString();
+      dataGrid.data = data.data;
       dataGrid.local = data.shop.name;
       dataGrid.empresa = data.brand.name;
       dataGrid.promotor = data.promoter.name;
       dataGrid.ramo = data.project;
-      dataGrid.rede = data.brand.chain.name;
       data.photos.forEach(photo => {
         let newdataGrid: DataPhotoGrid;
         newdataGrid = dataGrid;

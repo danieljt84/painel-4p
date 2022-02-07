@@ -6,7 +6,7 @@ import { Shop } from "./shop";
 
 export interface DataFile{
   id:number;
-  date:Date;
+  data:string;
   brand:Brand;
   project:string;
   shop:Shop;

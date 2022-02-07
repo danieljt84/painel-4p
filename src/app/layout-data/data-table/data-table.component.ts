@@ -48,13 +48,14 @@ export class DataTableComponent implements OnInit, AfterViewInit {
   }
 
   constructor(private dataTableService:DataTableService) {
-    this.values = this.dataTableService.getDataTable();
-    this.dataSource.data = this.values;
+
   }
 
   ngOnInit(): void {
   //Me inscrevo no evento gerado pelo clique do submit
   //Atualizo o dataSouce com os dados filtrados
+  this.values = this.dataTableService.getDataTable();
+    this.dataSource.data = this.values;
    EventEmiterService.get('submitFilter').subscribe(value=> {
      if(value){
        this.dataSource.data = this.dataTableService.getDataTable();
