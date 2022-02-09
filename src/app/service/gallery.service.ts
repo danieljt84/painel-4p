@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
+import { filter, map } from 'rxjs';
 import { DataFile } from '../model/data-file';
-import { ApiService } from './api.service';
+import { DataFilePhoto } from '../model/gallery/datafile-photo';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GalleryService {
 
-  datasPhotosFiltered: DataFile[] = [];
-  private filters: Map<string, string[]>;
-  datas:DataFile[];
+  datasPhotosFiltered: DataFilePhoto[] = [];
+  filters: Map<string, string[]>;
+  datas:DataFilePhoto[];
 
   constructor() {
   }
 
-  transform(datas:DataFile[]){
+  transform(datas:DataFilePhoto[]){
     this.datas = datas;
     this.filters = new Map<string,string[]>();
     this.createFieldsMap(this.datas);
@@ -41,7 +42,7 @@ export class GalleryService {
     this.datasPhotosFiltered = [];
     //Função onde recebo o nome do campo para filtrar os valores
     let functionFilter = (key: string) => {
-      this.datas.filter((data: any) => values.get(key).includes(data[key].name))
+      this.datas.filter((data: any) => values.get(key).includes(data[key]))
         .forEach(data => {
           if (!this.datasPhotosFiltered.includes(data)) this.datasPhotosFiltered.push(data)
         });
@@ -60,6 +61,10 @@ export class GalleryService {
       functionFilter('project');
       return this.filters;
     }
+    if(values.get('section').length != 0) {
+      functionFilter('section');
+      return this.filters;
+    }
     this.filters.clear();
     this.createFieldsMap(this.datas)
     return this.filters;
@@ -68,7 +73,7 @@ export class GalleryService {
   //Cria os arrays dos filtros
   //Insere os filtros possiveis para cada tipo
   //Retira os valores repetidos
-  createFieldsMap(datas: DataFile[]) {
+  createFieldsMap(datas: DataFilePhoto[]) {
     this.filters.set('brand', []);
     this.filters.set('project', []);
     this.filters.set('chain', []);
@@ -76,9 +81,9 @@ export class GalleryService {
     this.filters.set('section', []);
 
     datas.forEach(data => {
-      if (!this.filters.get('brand').includes(data.brand.name)) this.filters.get('brand').push(data.brand.name);
+      if (!this.filters.get('brand').includes(data.brand)) this.filters.get('brand').push(data.brand);
       if (!this.filters.get('project').includes(data.project)) this.filters.get('project').push(data.project);
-      if (!this.filters.get('shop').includes(data.shop.name)) this.filters.get('shop').push(data.shop.name);
+      if (!this.filters.get('shop').includes(data.shop)) this.filters.get('shop').push(data.shop);
       data.photos.forEach(photo => {
         if (!this.filters.get('section').includes(photo.section)) this.filters.get('section').push(photo.section)
       });

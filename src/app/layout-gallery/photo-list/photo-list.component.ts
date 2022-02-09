@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { DataFile } from 'src/app/model/data-file';
-import { DataPhoto } from 'src/app/model/gallery/data-photo';
 import { DataPhotoGrid } from 'src/app/model/gallery/data-photo-grid';
+import { DataFilePhoto } from 'src/app/model/gallery/datafile-photo';
 import { ApiService } from 'src/app/service/api.service';
 import { EventEmiterService } from 'src/app/service/event-emiter.service';
 import { GalleryService } from 'src/app/service/gallery.service';
@@ -13,7 +13,7 @@ import { GalleryService } from 'src/app/service/gallery.service';
 })
 export class PhotoListComponent implements OnInit {
 
-  @Input() datas: DataFile[] = [];
+  @Input() datas: DataFilePhoto[] = [];
   datasGrid: DataPhotoGrid[] = [];
   rows: any[] = [];
 
@@ -39,9 +39,9 @@ export class PhotoListComponent implements OnInit {
     this.datas.forEach(data => {
       let dataGrid: DataPhotoGrid = new DataPhotoGrid();
       dataGrid.data = data.data;
-      dataGrid.local = data.shop.name;
-      dataGrid.empresa = data.brand.name;
-      dataGrid.promotor = data.promoter.name;
+      dataGrid.local = data.shop;
+      dataGrid.empresa = data.brand;
+      dataGrid.promotor = data.promoter;
       dataGrid.ramo = data.project;
       data.photos.forEach(photo => {
         let newdataGrid: DataPhotoGrid;

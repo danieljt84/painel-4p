@@ -5,16 +5,15 @@ import {
   ActivatedRouteSnapshot
 } from '@angular/router';
 import { Observable, of } from 'rxjs';
-import { DataFile } from '../model/data-file';
-import { ApiService } from '../service/api.service';
+import { ApiService } from 'src/app/service/api.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class DataResolver implements Resolve<DataFile[]> {
+export class FilterPhotosResolver implements Resolve<any> {
   constructor(private apiService:ApiService){
   }
-  resolve(route: ActivatedRouteSnapshot): Observable<DataFile[]> {
-    return this.apiService.getDatas();
+  resolve(route: ActivatedRouteSnapshot): Observable<any> {
+     return this.apiService.getFilterPhotos(null);
   }
 }

@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { DataPhoto } from 'src/app/model/gallery/data-photo';
 import { DataPhotoGrid } from 'src/app/model/gallery/data-photo-grid';
 
 @Component({

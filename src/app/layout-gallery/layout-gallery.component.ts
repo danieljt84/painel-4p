@@ -11,6 +11,7 @@ export class LayoutGalleryComponent implements OnInit {
 
   constructor(private route:ActivatedRoute,private galleryService:GalleryService ) {
      this.galleryService.transform(route.snapshot.data['datas']);
+
    }
 
   ngOnInit(): void {
