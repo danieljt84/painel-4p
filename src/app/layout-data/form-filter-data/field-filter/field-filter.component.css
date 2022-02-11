@@ -8,11 +8,8 @@
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   background: #ffffff;
 }
-.input-group-r{
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  margin: 0 5px 5px 0;
+.input-group-r label{
+  margin: 0 0 0 0;
 }
 .input-group-r ul{
   overflow:hidden;

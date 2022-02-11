@@ -1,18 +1,13 @@
 .input-group-gallery {
   margin-bottom: 1rem !important;
   position: relative;
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
   width: 100%;
-  justify-content: space-between;
 }
 .input-gallery {
-  left: 406px;
-  top: 157px;
   margin-right: 5px;
   margin-left: 1px;
   border-radius: 0.25rem;
+  width:auto;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   background: #ffffff;
 }
@@ -30,8 +25,12 @@
   margin-bottom: 10px;
 }
 .input-group-r{
-  display: flex;
-  align-items: center;
-  flex-direction: row;
   margin: 0 5px 5px 0;
 }
+.input-group-r label{
+  margin: 0 0 0 0;
+}
+.data-group{
+  display: flex;
+}
+

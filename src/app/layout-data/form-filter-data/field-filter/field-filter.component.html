@@ -1,5 +1,5 @@
 <div class="input-group-r" (outsideClick)="sendFilter()">
-  <span>{{label}}</span>
+  <label>{{label}}</label>
   <div>
     <input type="text" (click)="toggleList($event)" class="input-gallery form-control" readonly placeholder="Selecione:" [id]="id_input" />
     <ul [id]="id_ul" class="ul">

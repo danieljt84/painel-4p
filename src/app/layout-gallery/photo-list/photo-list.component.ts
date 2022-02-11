@@ -37,7 +37,7 @@ export class PhotoListComponent implements OnInit {
   transform() {
     this.datasGrid = [];
     this.datas.forEach(data => {
-      let dataGrid: DataPhotoGrid = new DataPhotoGrid();
+      const dataGrid: DataPhotoGrid = new DataPhotoGrid();
       dataGrid.data = data.data;
       dataGrid.local = data.shop;
       dataGrid.empresa = data.brand;
@@ -45,10 +45,10 @@ export class PhotoListComponent implements OnInit {
       dataGrid.ramo = data.project;
       data.photos.forEach(photo => {
         let newdataGrid: DataPhotoGrid;
-        newdataGrid = dataGrid;
-        dataGrid.secao = photo.section;
-        dataGrid.url = photo.url;
-        this.datasGrid.push(dataGrid);
+        newdataGrid = {...dataGrid}
+        newdataGrid.secao = photo.section;
+        newdataGrid.url = photo.url;
+        this.datasGrid.push(newdataGrid);
       })
     })
   }
