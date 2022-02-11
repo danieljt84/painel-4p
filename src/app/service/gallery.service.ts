@@ -10,22 +10,22 @@ export class GalleryService {
 
   datasPhotosFiltered: DataFilePhoto[] = [];
   filters: Map<string, string[]>;
-  datas:DataFilePhoto[];
+  datas: DataFilePhoto[];
 
   constructor() {
   }
 
-  transform(datas:DataFilePhoto[]){
+  transform(datas: DataFilePhoto[]) {
     this.datas = datas;
-    this.filters = new Map<string,string[]>();
+    this.filters = new Map<string, string[]>();
     this.createFieldsMap(this.datas);
   }
 
   //Se tem dados filtrado, envia os filtrados
   getDataPhotos() {
-    if(this.datasPhotosFiltered.length==0){
+    if (this.datasPhotosFiltered.length == 0) {
       return this.datas;
-    }else{
+    } else {
       return this.datasPhotosFiltered;
     }
   }
@@ -61,8 +61,13 @@ export class GalleryService {
       functionFilter('project');
       return this.filters;
     }
-    if(values.get('section').length != 0) {
-      functionFilter('section');
+    if (values.get('section').length != 0) {
+      this.datas.filter((data: any) => values.get("section").includes(data.photo.section))
+        .forEach(data => {
+          if (!this.datasPhotosFiltered.includes(data)) this.datasPhotosFiltered.push(data)
+        });
+      this.filters.clear();
+      this.createFieldsMap(this.datasPhotosFiltered)
       return this.filters;
     }
     this.filters.clear();
