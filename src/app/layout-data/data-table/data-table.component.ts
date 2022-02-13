@@ -4,7 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { EventEmiterService } from 'src/app/service/event-emiter.service';
 import { DataTableService } from 'src/app/service/data-table.service';
-import { DataFile } from 'src/app/model/data-file';
+import { DataFileDetails } from 'src/app/model/detail/datafile-details';
 
 
 @Component({
@@ -22,12 +22,12 @@ import { DataFile } from 'src/app/model/data-file';
 export class DataTableComponent implements OnInit, AfterViewInit {
 
   title = 'angular-mat-table-example';
-  values:DataFile[] = [];
+  values:DataFileDetails[] = [];
   @ViewChild(MatSort) sort: MatSort;
 
 
-  dataSource = new MatTableDataSource<DataFile>();
-  columnsToDisplay = ['id','local', 'rede', 'ramo'];
+  dataSource = new MatTableDataSource<DataFileDetails>();
+  columnsToDisplay = ['id','shop', 'promoter', 'project'];
 
   toggleRow(element: { expanded: boolean; }) {
     // Uncommnet to open only single row at once

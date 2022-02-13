@@ -5,37 +5,42 @@
         <div class="row">
           <h2 class="tilte-card">Filtros</h2>
         </div>
-            <div class="row input-group-gallery">
-              <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 input-group-r">
-                <label>Data: </label>
-                <div class="data-group">
-                  <input type="date" class="input-gallery form-control" id="dataInicial" />
-                  <input type="date" class="input-gallery form-control" id="dataFinal" />
-                </div>
-              </div>
-              <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 input-group-r">
-                <span>Industria: </span>
-                <input type="text" class="input-gallery form-control" value="Pramesa" readonly id="industria"
-                />
-              </div>
-              <app-field-filter class="col-xs-12 col-sm-12 col-md-3 col-lg-3" [label]="'Ramo:'" [filterBehaviorSubject]="filterBehaviorSubject" [id_input]="'project'" [filters]="filters.get('project')"></app-field-filter>
+        <div class="row input-group-gallery">
+          <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 input-group-r">
+            <label>Data: </label>
+            <div class="data-group">
+              <input type="date" class="input-gallery form-control" id="dataInicial" />
+              <input type="date" class="input-gallery form-control" id="dataFinal" />
             </div>
-              <div class="row input-group-gallery">
-                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ">
-                  <app-field-filter [label]="'Rede: '"[filterBehaviorSubject]="filterBehaviorSubject"  [id_input]="'chain'" [filters]="filters.get('chain')"></app-field-filter>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ">
-                  <app-field-filter [label]="'Local: '"[filterBehaviorSubject]="filterBehaviorSubject"  [id_input]="'shop'" [filters]="filters.get('shop')"></app-field-filter>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ">
-                  <app-field-filter [label]="'Promotor: '"[filterBehaviorSubject]="filterBehaviorSubject"  [id_input]="'promoter'" [filters]="filters.get('promoter')"></app-field-filter>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ">
-                  <app-field-filter [label]="'Seção: '"[filterBehaviorSubject]="filterBehaviorSubject"  [id_input]="'section'" [filters]="filters.get('section')"></app-field-filter>
-                </div>
-              </div>
-              <button type="submit" (click)="submitFilter()" class="galerry-button">Filtrar</button>
-            </div>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 input-group-r">
+            <label>Industria: </label>
+            <input type="text" class="input-gallery form-control" value="Pramesa" readonly id="industria" />
+          </div>
+          <app-field-filter class="col-xs-12 col-sm-12 col-md-3 col-lg-3" [label]="'Ramo:'"
+            [filterBehaviorSubject]="filterBehaviorSubject" [id_input]="'project'" [filters]="filters.get('project')">
+          </app-field-filter>
+        </div>
+        <div class="row input-group-gallery">
+          <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ">
+            <app-field-filter [label]="'Rede: '" [filterBehaviorSubject]="filterBehaviorSubject" [id_input]="'chain'"
+              [filters]="filters.get('chain')"></app-field-filter>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ">
+            <app-field-filter [label]="'Local: '" [filterBehaviorSubject]="filterBehaviorSubject" [id_input]="'shop'"
+              [filters]="filters.get('shop')"></app-field-filter>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ">
+            <app-field-filter [label]="'Promotor: '" [filterBehaviorSubject]="filterBehaviorSubject"
+              [id_input]="'promoter'" [filters]="filters.get('promoter')"></app-field-filter>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ">
+            <app-field-filter [label]="'Seção: '" [filterBehaviorSubject]="filterBehaviorSubject" [id_input]="'section'"
+              [filters]="filters.get('section')"></app-field-filter>
+          </div>
+        </div>
+        <button type="submit" (click)="submitFilter()" class="galerry-button">Filtrar</button>
+      </div>
     </app-card>
   </div>
 </div>

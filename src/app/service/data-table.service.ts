@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { firstValueFrom, lastValueFrom } from 'rxjs';
 import { DataFile } from '../model/data-file';
+import { DataFileDetails } from '../model/detail/datafile-details';
 import { ApiService } from './api.service';
 
 @Injectable({
@@ -10,13 +9,13 @@ import { ApiService } from './api.service';
 export class DataTableService {
 
   private filters: Map<string, string[]>;
-  datas: DataFile[];
-  datasFiltered: DataFile[] = [];
+  datas: DataFileDetails[];
+  datasFiltered: DataFileDetails[] = [];
 
   constructor(){}
 
 
-  transform(datas:DataFile[]){
+  transform(datas:DataFileDetails[]){
     this.filters = new Map<string, string[]>();
     this.datas = datas;
     this.createFieldsMap(this.datas);
@@ -40,7 +39,7 @@ export class DataTableService {
   //Cria os arrays dos filtros
   //Insere os filtros possiveis para cada tipo
   //Retira os valores repetidos
-  createFieldsMap(datas: DataFile[]) {
+  createFieldsMap(datas: DataFileDetails[]) {
     this.filters.set('brand', []);
     this.filters.set('project', []);
     this.filters.set('chain', []);
@@ -48,17 +47,15 @@ export class DataTableService {
     this.filters.set('tipoPesquisa', []);
 
     datas.forEach(datafile => {
-      this.filters.get('brand').push(datafile.brand.name);
+      this.filters.get('brand').push(datafile.brand);
       this.filters.get('project').push(datafile.project);
-      this.filters.get('shop').push(datafile.shop.name);
+      this.filters.get('shop').push(datafile.shop);
     })
-
     //Removendo repetidos
     this.filters
       .forEach((filter: string[], key: string, map: Map<string, string[]>) =>
         map.set(key, filter.filter((it, i) =>
           filter.indexOf(it) === i)));
-
   }
   //Seguindo a regra de negócio, se tem local, nao precisa de rede, ramo;
   //Seguindo a regra de negócio, se tem rede, nao precisa de ramo;

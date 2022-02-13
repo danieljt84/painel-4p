@@ -5,9 +5,13 @@
         <button type="submit" class="galerry-button">Agendar Book</button>
     </div>
     <div class="row" *ngFor="let dataPhotoGrids of rows">
-      <div class="col-sm-12 col-lg-4" *ngFor="let dataPhotoGrid of dataPhotoGrids">
-        <app-photo [dataPhotoGrid]="dataPhotoGrid"></app-photo>
-      </div>
+      <app-collapse-details>
+        <div class="row">
+          <div class="col-sm-12 col-lg-4" *ngFor="let dataPhotoGrid of dataPhotoGrids">
+            <app-photo [dataPhotoGrid]="dataPhotoGrid"></app-photo>
+          </div>
+        </div>
+      </app-collapse-details>
     </div>
   </div>
 </app-card>

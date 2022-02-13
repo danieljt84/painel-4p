@@ -3,7 +3,7 @@ import { Product } from "./Product";
 export interface DetailProducts{
   product: Product;
   price: number;
-  estoque: number;
+  stock: number;
   validity: Date;
-  status: string;
+  ruptura: string;
 }

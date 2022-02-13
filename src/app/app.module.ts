@@ -19,12 +19,14 @@ import { MatInputModule } from '@angular/material/input';
 import { FormFilterDataComponent } from './layout-data/form-filter-data/form-filter-data.component';
 import { FilterPipePipe } from './pipe/filter-pipe.pipe';
 import { FormsModule } from '@angular/forms';
+import {MatExpansionModule} from '@angular/material/expansion';
 import { FieldFilterComponent } from './layout-data/form-filter-data/field-filter/field-filter.component';
 import { OutsideClickDirective } from './directive/outside-click.directive';
 import { NavTesteComponent } from './teste/nav-teste/nav-teste.component';
 import { FormFilterGalleryComponent } from './layout-gallery/form-filter-gallery/form-filter-gallery.component';
 import { LayoutDataComponent } from './layout-data/layout-data.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CollapseDetailsComponent } from './shared/collapse-details/collapse-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +44,8 @@ import { HttpClientModule } from '@angular/common/http';
     FieldFilterComponent,
     OutsideClickDirective,
     NavTesteComponent,
-    FormFilterGalleryComponent
+    FormFilterGalleryComponent,
+    CollapseDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +55,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatTableModule,
     FormsModule,
     MatSortModule,
+    MatExpansionModule,
     MatFormFieldModule,
     MatInputModule,
     HttpClientModule
