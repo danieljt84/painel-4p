@@ -20,7 +20,7 @@
   z-index: 1;
   height:auto;
   max-height: 100px;
-  width:auto;
+  width:250px;
   padding-left: 0px;
   background-color: white;
 }
@@ -29,4 +29,7 @@
 }
 .selected{
   background-color: rgb(202, 201, 201);
+}
+.ul-search{
+  width:100%;
 }

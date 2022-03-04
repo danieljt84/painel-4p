@@ -12,5 +12,4 @@ export class DataDetailsResolve implements Resolve<DataFileDetails[]> {
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<DataFileDetails[]>  {
      return this.apiService.getDataDetails(null);
   }
-
 }

@@ -16,6 +16,7 @@ export class PhotoListComponent implements OnInit {
   @Input() datas: DataFilePhoto[] = [];
   datasGrid: DataPhotoGrid[] = [];
   rows: any[] = [];
+  opened: boolean = false;
 
   constructor(private galleryService: GalleryService,private apiService:ApiService) {
     this.datas = this.galleryService.getDataPhotos();
@@ -52,8 +53,6 @@ export class PhotoListComponent implements OnInit {
       })
     })
   }
-
-
   groupColumns(photos: DataPhotoGrid[]) {
     const newRows = [];
 
@@ -61,5 +60,13 @@ export class PhotoListComponent implements OnInit {
       newRows.push(photos.slice(index, index + 3));
     }
     return newRows;
+  }
+
+  changeMode(){
+  if(this.opened){
+    this.opened = false;
+  }else{
+    this.opened = true;
+  }
   }
 }
