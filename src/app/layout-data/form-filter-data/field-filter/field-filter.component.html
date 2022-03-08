@@ -4,9 +4,7 @@
     <input type="text" (click)="toggleList($event)" class="input-gallery form-control" readonly placeholder="Selecione:" [id]="id_input" />
     <ul [id]="id_ul" class="ul">
       <li>
-        <div>
-          <input [(ngModel)]="search" class="ul-search" type="text">
-        </div>
+          <input [(ngModel)]="search" class="ul-search input-gallery" type="text">
       </li>
       <div>
         <ng-container *ngFor="let filter of filters | filterPipe: search">

@@ -19,17 +19,24 @@
   list-style: none;
   z-index: 1;
   height:auto;
-  max-height: 100px;
-  width:250px;
+  max-height: 150px;
+  width:90%;
   padding-left: 0px;
   background-color: white;
 }
 .input-group-r ul li:hover{
   color: grey;
 }
+.input-group-r ul li{
+  margin: 5px 2px 5px 2px;
+  font-size: small;
+}
 .selected{
   background-color: rgb(202, 201, 201);
 }
 .ul-search{
   width:100%;
+  padding-left: 5px;
+  padding-right: 5px;
 }
+
