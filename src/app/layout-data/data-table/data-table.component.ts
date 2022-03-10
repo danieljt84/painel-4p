@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { EventEmiterService } from 'src/app/service/event-emiter.service';
 import { DataTableService } from 'src/app/service/data-table.service';
 import { DataFileDetails } from 'src/app/model/detail/datafile-details';
+import { DataDetailGrid } from 'src/app/model/detail/data-detail-grid';
 
 
 @Component({
@@ -23,6 +24,7 @@ export class DataTableComponent implements OnInit, AfterViewInit {
 
   title = 'angular-mat-table-example';
   values:DataFileDetails[] = [];
+  datasDetailsGrid: DataDetailGrid[] = [];
   @ViewChild(MatSort) sort: MatSort;
 
 
@@ -64,5 +66,30 @@ export class DataTableComponent implements OnInit, AfterViewInit {
   }
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
+  }
+
+  groupColumnsUntied(){
+
+  }
+  transform(){
+    this.datasDetailsGrid
+    this.dataSource.data.forEach(data =>{
+      const dataDetailsGrid: DataDetailGrid = new DataDetailGrid();
+      dataDetailsGrid.brand = data.brand;
+      dataDetailsGrid.chain = data.chain;
+      dataDetailsGrid.data = data.data;
+      dataDetailsGrid.shop = data.shop;
+      dataDetailsGrid.project = data.project;
+      dataDetailsGrid.promoter = data.promoter;
+      data.details.forEach(detail =>{
+        let newDataDetailsGrid: DataDetailGrid;
+        newDataDetailsGrid = {...dataDetailsGrid}
+        newDataDetailsGrid.product = detail.product.name;
+        newDataDetailsGrid.price = detail.price;
+        newDataDetailsGrid.stock = detail.stock;
+        newDataDetailsGrid.validity = detail.validity;
+        newDataDetailsGrid.ruptura = detail.product.name;
+      });
+    });
   }
 }

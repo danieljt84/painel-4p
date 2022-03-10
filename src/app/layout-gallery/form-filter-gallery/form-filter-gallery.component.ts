@@ -52,7 +52,4 @@ export class FormFilterGalleryComponent implements OnInit, OnDestroy {
     this.filtersSelected.set('promoter', []);
     this.filtersSelected.set('section', []);
   }
-
-
-
 }
