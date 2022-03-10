@@ -96,7 +96,7 @@ export class DataTableComponent implements OnInit, AfterViewInit {
   }
 
   changeMode(mode: boolean){
-    if (!mode){
+    if (mode){
       this.opened = false;
       this.dataSource.data = this.datasDetailsGrid;
     } else {
