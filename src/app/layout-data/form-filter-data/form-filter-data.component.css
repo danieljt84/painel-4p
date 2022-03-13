@@ -7,7 +7,7 @@
   margin-right: 5px;
   margin-left: 1px;
   border-radius: 0.25rem;
-  width:auto;
+  width:100%;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   background: #ffffff;
 }
@@ -33,4 +33,10 @@
 .data-group{
   display: flex;
 }
-
+.container-content{
+  width: 100%;
+  margin: auto;
+}
+.title-card{
+  padding-left: 15px;
+}
