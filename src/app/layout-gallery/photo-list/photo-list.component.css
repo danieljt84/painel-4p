@@ -34,3 +34,11 @@
 .col-photo{
   padding: 0 5px 5px 0;
 }
+.photo-group > .row{
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.photo-group > .row > .col-lg-4 {
+  display: inline-block;
+  float: none;
+}

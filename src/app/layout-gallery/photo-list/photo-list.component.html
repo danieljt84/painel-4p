@@ -3,21 +3,39 @@
     <div class="row row-detail">
       <h2 class="tilte-card">Galeria</h2>
       <div class="btn-group" role="group">
-        <button type="button" (click)="opened = true" class="btn btn-secondary">Aberto</button>
-        <button type="button" (click)="opened = false" class="btn btn-secondary">Agrupado</button>
+        <button
+          type="button"
+          (click)="changeMode('opened')"
+          class="btn btn-secondary"
+        >
+          Aberto
+        </button>
+        <button
+          type="button"
+          (click)="changeMode('group')"
+          class="btn btn-secondary"
+        >
+          Agrupado
+        </button>
       </div>
       <button type="submit" class="galerry-button">Agendar Book</button>
     </div>
-    <ng-container *ngTemplateOutlet="opened ? openedPhoto : groupPhoto"></ng-container>
+    <ng-container
+      *ngTemplateOutlet="opened ? openedPhoto : groupPhoto"
+    ></ng-container>
   </div>
 </app-card>
 
 <ng-template #groupPhoto>
   <div class="row row-photo" *ngFor="let dataPhotoGrids of rows">
-    <app-collapse-details style="width: 100%;">
-      <div class="row">
-        <div class="col-photo col-sm-12 col-lg-4" *ngFor="let dataPhotoGrid of dataPhotoGrids">
-          <app-photo [dataPhotoGrid]="dataPhotoGrid"></app-photo>
+    <app-collapse-details style="width: 100%">
+      <div class="photo-group">
+        <div class="row">
+          <div
+            class="col-photo col-sm-12 col-lg-4"
+            *ngFor="let dataPhotoGrid of dataPhotoGrids">
+            <app-photo [dataPhotoGrid]="dataPhotoGrid"></app-photo>
+          </div>
         </div>
       </div>
     </app-collapse-details>
@@ -26,8 +44,11 @@
 
 <ng-template #openedPhoto>
   <div class="row row-photo" *ngFor="let dataPhotoGrids of rows">
-    <div class="col-photo col-sm-12 col-lg-4" *ngFor="let dataPhotoGrid of dataPhotoGrids">
-        <app-photo [dataPhotoGrid]="dataPhotoGrid"></app-photo>
-      </div>
+    <div
+      class="col-photo col-sm-12 col-lg-4"
+      *ngFor="let dataPhotoGrid of dataPhotoGrids"
+    >
+      <app-photo [dataPhotoGrid]="dataPhotoGrid"></app-photo>
     </div>
+  </div>
 </ng-template>
