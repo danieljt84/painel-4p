@@ -21,6 +21,10 @@
   background: #ff6047;
   border-radius: 4px;
 }
+.date{
+  display: flex;
+  justify-content: space-between
+}
 .card{
   margin-bottom: 10px;
 }
