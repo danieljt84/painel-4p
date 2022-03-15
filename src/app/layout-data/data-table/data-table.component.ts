@@ -31,6 +31,8 @@ export class DataTableComponent implements OnInit, AfterViewInit {
 
   dataSource = new MatTableDataSource<any>();
   columnsToDisplay = ['id','shop', 'promoter', 'project'];
+  columnsToDisplayUntied = ['data'];
+
 
   toggleRow(element: { expanded: boolean; }) {
     // Uncommnet to open only single row at once
@@ -39,7 +41,7 @@ export class DataTableComponent implements OnInit, AfterViewInit {
     // })
     element.expanded = !element.expanded
   }
-  
+
   manageAllRows(flag: boolean) {
     this.values.forEach(row => {
       row.expanded = flag;
